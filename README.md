@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Boris Bikes Challenges
 
 London's Boris Bikes (well, 'Santander Cycles') are awesome. For a small fee, anyone can hire out a bike and ride it around London. Bikes are located at Docking Stations dotted throughout the city.
@@ -33,3 +34,6 @@ Challenges
 20. Mocking Behaviour on Doubles
 21. Men with Ven
 22. Modules as Mixins
+=======
+boris bikes
+>>>>>>> 2730016613c0413200575e3119a8eb83c1b3db68
