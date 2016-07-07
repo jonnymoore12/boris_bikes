@@ -20,21 +20,24 @@ describe DockingStation do
     expect(bike).to be_working
   end
 
+  # Bit confused by this test here. Dock currently returns an array.
   describe '#dock' do
     it 'docks something' do
       bike = Bike.new
-      expect(subject.dock(bike)).to eq bike
+      # So we turned "bike" into "[bike]"
+      expect(subject.dock(bike)).to eq [bike]
     end
+    # This one also fails. It's expecting a bike to be returned by .dock(),
+    # but .dock() returns the whole array
     it 'return docked bikes' do
       bike = Bike.new
       subject.dock(bike)
       expect(subject.bike).to eq bike
     end
-    it 'raises an error when docking station is at capacity' do
-      bike = Bike.new
-      subject.dock(bike)
-      bike2 = Bike.new
-      expect { subject.dock(bike2) }.to raise_error("Cannot accept bike - Full")
+
+    it 'raises an error when full' do
+      20.times { subject.dock(Bike.new) }
+      expect { subject.dock(Bike.new) }.to raise_error("Cannot accept bike - Full")
     end
   end
 
