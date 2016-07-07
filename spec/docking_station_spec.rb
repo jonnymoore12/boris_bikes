@@ -1,28 +1,43 @@
 require 'docking_station'
-#require 'bike'
-
 
 describe DockingStation do
 
-#it 'station release_bike' do
-#   expect(Docking_station).to respond_to(:release_bike)
-  it {is_expected.to respond_to :release_bike}
-#it 'station release_bike' do
+  describe '#release_bike' do
+    it 'releases a bike' do
+      bike = Bike.new
+      subject.dock(bike)
+      expect(subject.release_bike).to eq bike
+    end
+    # Do we want this:?
+    it {is_expected.to respond_to :release_bike}
+    it 'raises an error if there are no bikes' do
+      expect { subject.release_bike }.to raise_error("No bikes!")
+    end
+  end
+
+  it 'is working' do
+    bike = Bike.new
+    expect(bike).to be_working
+  end
+
+  describe '#dock' do
+    it 'docks something' do
+      bike = Bike.new
+      expect(subject.dock(bike)).to eq bike
+    end
+    it 'return docked bikes' do
+      bike = Bike.new
+      subject.dock(bike)
+      expect(subject.bike).to eq bike
+    end
+  end
+
+end
+
+=begin
+Should we also have this:
 it 'release working bikes' do
   bike = subject.release_bike
   expect(bike).to be_working
 end
-  # expecting DockingStation instances to respond to .dock
- #it {is_expected.to respond_to(:dock).with(1).argument }
-  it 'docks something' do
-    bike = Bike.new
-    expect(subject.dock(bike)).to eq bike
-  end
-
-  #it {is_expected.to respond_to(:bike) }
-  it 'return docked bikes' do
-    bike = Bike.new
-    subject.dock(bike)
-    expect(subject.bike).to eq bike
-  end
-end
+=end
