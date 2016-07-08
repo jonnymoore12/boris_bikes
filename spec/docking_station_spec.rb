@@ -13,18 +13,6 @@ describe DockingStation do
     end
   end
 
-=begin
-  describe 'initialization' do
-    it 'has a variable capacity, with default value if not spec dur instantiation' do
-      docking_station = DockingStation.new(100)
-      100.times { docking_station.dock(Bike.new) }
-      # Not "subject.dock" as we are not general. We are testing that specific
-      # docking_station that we just instantiated above.
-      expect{docking_station.dock(Bike.new)}.to raise_error("Sorry, full!")
-    end
-  end
-=end
-
   describe '#release_bike' do
     it 'raises an error when there are no bikes available' do
       expect{subject.release_bike}.to raise_error("No bikes!")
