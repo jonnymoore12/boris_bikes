@@ -41,6 +41,7 @@ RSpec.configure do |config|
   end
 
 
+
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
   # have no way to turn it off -- the option exists only for backwards
   # compatibility in RSpec 3). It causes shared context metadata to be
@@ -60,6 +61,8 @@ RSpec.configure do |config|
 <<<<<<< HEAD
 =======
 =======
+=======
+>>>>>>> 4964cab40219374e7dcc2b2ca5849bec8e5a3e73
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
@@ -69,8 +72,11 @@ RSpec.configure do |config|
   # get run.
   config.filter_run :focus
   config.run_all_when_everything_filtered = true
+<<<<<<< HEAD
 >>>>>>> a2b34cf4c243aa2b6025567bcca005e4e7e06370
 >>>>>>> 4765c3208c70ce4032d86eb62ff6e2385b7e997f
+=======
+>>>>>>> 4964cab40219374e7dcc2b2ca5849bec8e5a3e73
 
   # Allows RSpec to persist some state between runs in order to support
   # the `--only-failures` and `--next-failure` CLI options. We recommend
