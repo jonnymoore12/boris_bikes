@@ -37,16 +37,9 @@ describe DockingStation do
     end
     it 'raises an error when we try to dock when full' do
       # Syntax to access DEFAULT_CAPACITY from the DockingStation class
-      subject.capacity.times {subject.dock(Bike.new)}
-      expect{subject.dock(Bike.new)}.to raise_error("Sorry, all full up!")
+      subject.capacity.times {subject.dock(double(:bike))}
+      expect{subject.dock(double(:bike))}.to raise_error("Sorry, all full up!")
     end
   end
 
 end
-
-=begin
-      it 'releases working bikes' do
-        bike = subject.release_bike
-        expect(bike).to be_working
-      end
-=end
