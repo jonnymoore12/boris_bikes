@@ -15,15 +15,18 @@ describe DockingStation do
 
   describe '#release_bike' do
     it 'releases working bikes' do
-      subject.dock(double(:bike))
-      expect(subject.release_bike).to be_working
+      bike = double(:bike, broken?: false)
+      subject.dock(bike)
+      expect(subject.release_bike).to be bike
     end
     it 'raises an error when there are no bikes available' do
       expect{subject.release_bike}.to raise_error("No bikes!")
     end
     it 'raises an error when we try to release a broken bike' do
+      # The following two lines of code can be shorthanded to:
+      # bike = double(:bike, :broken?: true)
       bike = double(:bike)
-      bike.report_broken
+      allow(bike).to receive(:broken?).and_return(true)
       subject.dock(bike)
       expect{subject.release_bike}.to raise_error("Nope. This bike is broken.")
     end
@@ -33,7 +36,7 @@ describe DockingStation do
     it { is_expected.to respond_to(:dock).with(1).argument }
     it 'docks something' do
       # This test still passes after we replace Bike.new with double(:bike)
-      # as we are not calling any methods on bike.
+      # as we are not calling any methods on the bike class.
     	bike = double(:bike)
       expect(subject.dock(bike)).to include bike
     end
