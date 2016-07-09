@@ -7,7 +7,7 @@ describe DockingStation do
   end
 
   describe 'initialization' do
-    it 'defaults capacity' do
+    it 'raises an error if we try to dock when already at capacity' do
       described_class::DEFAULT_CAPACITY.times {subject.dock(Bike.new)}
       expect{subject.dock(Bike.new)}.to raise_error("Sorry, all full up!")
     end
